@@ -10,9 +10,9 @@ import scala.io.Source
 import scala.util.{Failure, Success}
 
 object FutureMain extends App with JSONMappers with Connection {
-  //  lazy val countries = Array(AUSTRALIA,AUSTRIA,BRAZIL,CANADA,CHINA,DENMARK,FRANCE,GERMANY,ISRAEL,ITALY,JAPAN,POLAND,RUSSIA,SOUTH_AFRICA,
-  //    UNITED_KINGDOM,UNITED_STATES)
-  lazy val countries = Array(UNITED_KINGDOM)
+    lazy val countries = Array(AUSTRALIA,AUSTRIA,BRAZIL,CANADA,CHINA,DENMARK,FRANCE,GERMANY,ISRAEL,ITALY,JAPAN,POLAND,RUSSIA,SOUTH_AFRICA,
+      UNITED_KINGDOM,UNITED_STATES)
+//  lazy val countries = Array(UNITED_KINGDOM)
 
   // no issues here - just create a bunch of requests and submit them asynchronously
   val resp = for {
