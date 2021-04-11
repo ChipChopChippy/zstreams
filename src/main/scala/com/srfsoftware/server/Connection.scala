@@ -27,7 +27,7 @@ trait Connection extends JSONMappers {
     g
   }
 
-  private def requestBytes[A](a: A): Array[Byte] = covidJsonMapper.writeValueAsBytes(a)
+  private def requestBytes[A](a: A): Array[Byte] = ??? //covidJsonMapper.writeValueAsBytes(a)
 
   def client = HttpClients.createDefault()
 

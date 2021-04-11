@@ -74,22 +74,33 @@ class ParseJsonTest extends AnyFlatSpec with should.Matchers with JSONMappers {
       |                "stringency_index": 0.0
       |            }]}}""".stripMargin
 
+//  "AFG" should "be parsed correctly" in {
+//    implicit val formats = DefaultFormats
+//    val json = parse(afg).asInstanceOf[JObject]
+//    val res = for {
+//      j <- json.values
+//      d =  j._2.asInstanceOf[Map[String, Any]]("data").asInstanceOf[List[Map[String, Any]]]
+//      e <- d
+//      f = build(e, CovidData)("date","total_cases","new_cases","total_cases_per_million","new_cases_per_million","total_vaccinations","stringency_index")
+//    } yield f
+//    res
+//  }
+
   "AFG" should "be parsed correctly" in {
-    implicit val formats = DefaultFormats
-    val json = parse(afg).asInstanceOf[JObject]
-    val res = for {
-      j <- json.values
-      d =  j._2.asInstanceOf[Map[String, AnyRef]]("data").asInstanceOf[List[Map[String, AnyRef]]]
-      e <- d
-      f =  CovidData(e("date").toString, e("total_cases").toString, e("new_cases").toString, e("total_cases_per_million").toString, e("new_cases_per_million").toString, "", e("stringency_index").toString)
-    } yield f
-    res
+    val json = parseJson(afg)
+    json.head.iso_code shouldBe "AFG"
+    json.head.iso_code_data.population shouldBe 38928341.0
   }
 
-  def build[A,B,C](m: Map[A,B], f: (B,B) => C)(k1: A, k2: A): Option[C] = for {
+  def build[A,B,C](m: Map[A,B], f: (B,B,B,B,B,B,B) => C)(k1: A, k2: A, k3: A, k4: A, k5: A, k6: A, k7: A): Option[C] = for {
     v1 <- m.get(k1)
     v2 <- m.get(k2)
-  } yield f(v1, v2)
+    v3 <- m.get(k3)
+    v4 <- m.get(k4)
+    v5 <- m.get(k5)
+    v6 <- m.get(k6)
+    v7 <- m.get(k7)
+  } yield f(v1, v2, v3, v4, v5, v6, v7)
 
 //  for {
 //    j <- json.obj

@@ -9,6 +9,7 @@ import zio.{App, ExitCode, URIO, ZIO}
 import zio.stream.ZStream
 
 import scala.io.Source
+import scala.math.Ordering.Implicits.infixOrderingOps
 
 object ZIOMain extends App with Connection {
 

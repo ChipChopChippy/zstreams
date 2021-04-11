@@ -1,5 +1,7 @@
 package com.srfsoftware.model
 
+import java.util.Date
+
 trait Vaccine extends Product with Serializable {
   def name: String
 }
@@ -50,9 +52,9 @@ final case class WorldVaccinations(iso_code: String, iso_code_data: ISOCodeData1
 final case class ISOCodeData(continent: String,	location: String, population: Int, population_density: Double, median_age: Double, aged_65_older: Double,
   aged_70_older: Double, gdp_per_capita: Double, cardiovasc_death_rate: Double, diabetes_prevalence: Double, handwashing_facilities: Double,
   hospital_beds_per_thousand: Double, life_expectancy: Double, human_development_index: Double, data: List[CovidData])
-final case class CovidData(date: String, total_cases: String, new_cases: String, total_cases_per_million: String, new_cases_per_million: String, total_vaccinations: String,
-  stringency_index: String)
+final case class CovidData(date: Date, total_cases: Double, new_cases: Double, total_cases_per_million: Double, new_cases_per_million: Double, total_vaccinations: Double,
+  stringency_index: Double)
 
-final case class ISOCodeData1(continent: String, location: String, population: String, population_density: String, median_age: String, aged_65_older: String,
-aged_70_older: String, gdp_per_capita: String, cardiovasc_death_rate: String, diabetes_prevalence: String, handwashing_facilities: String,
-hospital_beds_per_thousand: String, life_expectancy: String, human_development_index: String, data: List[CovidData])
+final case class ISOCodeData1(continent: String, location: String, population: Double, population_density: Double, median_age: Double, aged_65_older: Double,
+aged_70_older: Double, gdp_per_capita: Double, cardiovasc_death_rate: Double, diabetes_prevalence: Double, handwashing_facilities: Double,
+hospital_beds_per_thousand: Double, life_expectancy: Double, human_development_index: Double, data: List[CovidData])
